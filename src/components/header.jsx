@@ -11,14 +11,14 @@ const Header = () => {
         </Link>
 
         {/* <Button variant="outline">Login</Button> */}
-        <header>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-    </header>
+        <header className="ml-8">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </header>
       </nav>
     </>
   )
