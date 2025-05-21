@@ -8,17 +8,20 @@ const Header = () => {
       <nav className="py-4 flex justify-between items-center">
         <Link>
             <img src='/logo.png' className="h-20 ml-3"/>
-        </Link>
+        </Link> 
 
-        {/* <Button variant="outline">Login</Button> */}
-        <header className="ml-8">
+        <Button variant="outline"className="flex items-center justify-center px-4 py-2 h-auto">
+        <div className="w-full flex justify-center items-center">
           <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
             <UserButton />
           </SignedIn>
-        </header>
+        </div>
+      </Button>
+
+        
       </nav>
     </>
   )
