@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
+import  companies  from "../data/companies.json" 
+import  faq  from "../data/faq.json" 
+import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 const LandingPage = () => {
   return (
@@ -30,10 +36,57 @@ const LandingPage = () => {
       </div>
         {/* carousel */}
 
+        <Carousel plugins={[Autoplay({ delay: 2000 })]} className="w-full py-10" >
+          <CarouselContent className="flex gap-5 sm:gap-20 items-center">
+            {companies.map(({name, id, path}) => {
+              return(
+                <CarouselItem key={id} className="basis-1/3 lg:basis-1/6">
+                  <img src={path} alt={name} className="h-9 sm:h-14 object-contain"/>
+                </CarouselItem>
+              )
+            })}
+          </CarouselContent>
+        </Carousel> 
+
       {/* banner */}
-      <section>{/* cards */}</section>
+      <img src="/banner.jpeg" className="w-full" alt="" />
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">{/* cards */}
+        <Card>
+          <CardHeader>
+            <CardTitle>For Job Seekers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Search and apply for jobs, track applications, and more. 
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>For Employers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Post jobs, manage applications, and find the best candidates.
+          </CardContent>
+        </Card>
+      </section>
 
       {/* Accordion */}
+      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto mt-10">
+        {faq.map((faq, index) => (
+            <AccordionItem
+              key={index}
+              value={`item-${index + 1}`}
+              className="border-b border-white/10 last:border-b-0"
+            >
+              <AccordionTrigger className="w-full text-left px-1 sm:px-2 py-4 text-white text-base sm:text-lg font-medium hover:text-blue-400 transition-colors">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="px-1 sm:px-2 pb-4 text-gray-300 text-sm leading-relaxed">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
     </main>
   );
 };
