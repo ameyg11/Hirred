@@ -10,7 +10,7 @@ const Header = () => {
             <img src='/logo.png' className="h-20 ml-3"/>
         </Link> 
 
-        <Button variant="outline"className="flex items-center justify-center px-4 py-2 h-auto">
+        <div variant="outline"className="flex items-center justify-center px-4 py-2 h-auto">
         <div className="w-full flex justify-center items-center">
           <SignedOut>
             <SignInButton />
@@ -19,7 +19,7 @@ const Header = () => {
             <UserButton />
           </SignedIn>
         </div>
-      </Button>
+      </div>
 
         
       </nav>
