@@ -76,7 +76,7 @@ const LandingPage = () => {
             <AccordionItem
               key={index}
               value={`item-${index + 1}`}
-              className="border-b border-white/10 last:border-b-0"
+              className=" border-white/10 "
             >
               <AccordionTrigger className="w-full text-left px-1 sm:px-2 py-4 text-white text-base sm:text-lg font-medium hover:text-blue-400 transition-colors">
                 {faq.question}
